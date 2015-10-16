@@ -5,6 +5,8 @@ import re
 import subprocess
 import sys
 
+#iTerm app name
+iterm_name = '"iTerm2"'
 
 class SyntaxSettings:
 
@@ -69,7 +71,7 @@ class SendTextMixin:
     def iterm_version():
         try:
             args = ['osascript', '-e',
-                    'tell app "iTerm" to tell the first terminal to set foo to true']
+                    'tell app '+iterm_name+' to tell the first terminal to set foo to true']
             subprocess.check_call(args)
             return 2.0
         except:
@@ -87,10 +89,10 @@ class SendTextMixin:
         cmd = self.escape_dquote(cmd)
         ver = self.iterm_version()
         if ver == 2.0:
-            args = ['osascript', '-e', 'tell app "iTerm" to tell the first terminal ' +
+            args = ['osascript', '-e', 'tell app '+iterm_name+' to tell the first terminal ' +
                     'to tell current session to write text "' + cmd + '"']
         else:
-            args = ['osascript', '-e', 'tell app "iTerm" to tell the first terminal window ' +
+            args = ['osascript', '-e', 'tell app '+iterm_name+' to tell the first terminal window ' +
                     'to tell current session to write text "' + cmd + '"']
         subprocess.check_call(args)
 
