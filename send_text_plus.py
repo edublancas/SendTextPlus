@@ -92,7 +92,7 @@ class SendTextMixin:
             args = ['osascript', '-e', 'tell app '+iterm_name+' to tell the first terminal ' +
                     'to tell current session to write text "' + cmd + '"']
         else:
-            args = ['osascript', '-e', 'tell app '+iterm_name+' to tell the first terminal window ' +
+            args = ['osascript', '-e', 'tell app '+iterm_name+' to tell the first window ' +
                     'to tell current session to write text "' + cmd + '"']
         subprocess.check_call(args)
 
