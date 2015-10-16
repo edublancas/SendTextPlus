@@ -24,7 +24,7 @@
     {
         "auto_advance" : true,
         "osx" : {
-            "prog" : "Terminal"
+            "prog" : "iTerm"
         },
         "linux" : {
             "prog" : "tmux"
